@@ -133,6 +133,9 @@ end
 #     #     ls
 #     # end
 # end
-
-bind \cz '__ctrl-z.fish; commandline --function repaint'
+if test $fish_key_bindings = fish_vi_key_bindings
+    bind --mode insert \cz '__ctrl-z.fish; commandline --function repaint'
+else
+    bind \cz '__ctrl-z.fish; commandline --function repaint'
+end
 # bind \cz '__ctrl-z.fish'
